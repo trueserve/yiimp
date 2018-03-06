@@ -94,3 +94,7 @@ $configAlgoNormCoef = array(
 //	'x11' => 5.0,
 );
 
+// Per 'user' fee override
+$configUserFees = array(
+//	'PasteTheUsersWalletAddressHere' => 2.0,
+);
