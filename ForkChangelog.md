@@ -13,7 +13,7 @@ and apply only the changes you want from my version.
 **Forked from:**
 https://github.com/AltMinerNet/yiimp/tree/AltMinerNet-patch-failed-payments
 
----------------------------------------------------------------------------------------------------------------	
+_____
 	Fix:
 		Fixed an issue where the "AverageIncrement" function could return 80%
 		of the actual value when the function receives a 0 result from a market.
@@ -23,7 +23,7 @@ https://github.com/AltMinerNet/yiimp/tree/AltMinerNet-patch-failed-payments
 **Forked from:**
 https://github.com/Jaerin/yiimp
 
----------------------------------------------------------------------------------------------------------------	
+_____
 	Fix:
 		Late Transactions.
 		All coins including ones with sell on bid shouldn't send to exchanges with late transactions.
@@ -35,14 +35,14 @@ https://github.com/Jaerin/yiimp
 **Forked from:**
 https://github.com/Infernoman/yiimp/tree/patch-5
 
----------------------------------------------------------------------------------------------------------------	
+_____
 	Add:
 		Travis-ci configuration for build checks.
 
 		Changed files:
 				"README.md"
 				".travis.yml"
----------------------------------------------------------------------------------------------------------------			
+_____
 	Add:
 		Stratum: optional alert when stratum starts/restarts.
 
@@ -51,7 +51,7 @@ https://github.com/Infernoman/yiimp/tree/patch-5
 **Forked from:**
 https://github.com/crackfoo/yiimp/tree/patch-2
 
----------------------------------------------------------------------------------------------------------------	
+_____
 	Add:
 		Per user fees.
 
@@ -62,7 +62,7 @@ https://github.com/crackfoo/yiimp/tree/patch-2
 **Forked from:**
 https://github.com/Tristian/yiimp/tree/user-fees
 
----------------------------------------------------------------------------------------------------------------	
+_____
 	Enhancement:
 		Stats: a little refactoring, code style and fix for showing empty graphs.
 
@@ -72,7 +72,7 @@ https://github.com/Tristian/yiimp/tree/user-fees
 **Forked from:**
 https://github.com/AlmazDelDiablo/yiimp/tree/fix_graphs
 
----------------------------------------------------------------------------------------------------------------	
+_____
 	Enhancement:
 		Renting: html 4 to 5 + redirection fix + display only algorithm with coins +
 		"YAAMP_RENTING_MIN_BALANCE" in "serverconfig.php".
@@ -93,7 +93,7 @@ https://github.com/AlmazDelDiablo/yiimp/tree/fix_graphs
 **Forked from:**
 https://github.com/phm87/yiimp/tree/phm87-renting-patch-1
 
----------------------------------------------------------------------------------------------------------------	
+_____
 	Minor change:
 		Reserved balances.
 
@@ -104,7 +104,7 @@ https://github.com/phm87/yiimp/tree/phm87-renting-patch-1
 **Forked from:**
 https://github.com/Infernoman/yiimp/tree/patch-1
 
----------------------------------------------------------------------------------------------------------------	
+_____
 	Minor change:
 		Stratum: sync changes from "json-parser", prevent delete on "NULL" share.
 
@@ -115,14 +115,14 @@ https://github.com/Infernoman/yiimp/tree/patch-1
 **Forked from:**
 https://github.com/AltMinerNet/yiimp/tree/tuning
 
----------------------------------------------------------------------------------------------------------------	
+_____
 	Minor change:
 		Order algorithms alphabetical in "yaamp.php"
 
 		Changed files:
 				"web/yaamp/core/functions/yaamp.php"
 
----------------------------------------------------------------------------------------------------------------
+_____
 
 **Donations are welcome & appreciated.**
 
