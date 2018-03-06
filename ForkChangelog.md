@@ -1,7 +1,8 @@
 
 As of march, 2018 this fork is **100% compatible** with *"tpruvot's yiimp"*.\
 So, if you don't want to use all changes, that I made, you can fork from *"tpruvot"*\
-and apply only the changes you want from my version.
+and apply only the changes from my corresponding branches.\
+If you want the *"full-package"* use this branch *("AllBranchesMerged")*.
 _____
 
 **Changes:**
