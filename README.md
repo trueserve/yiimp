@@ -3,10 +3,12 @@
 ***"yiimp"*** - crypto-mining-pool-framework.  Forked from *"yaamp"* and based on the *"yii"* framework.
 
 Originally developed by *"globalzon"*, now maintained and further enhanced by *"tpruvot"* and various users from *"GitHub"*.
+_____
 
 **Required:**
 
 	"Linux", "MySQL/MariaDB", "php7.0+", "Memcached", a web-server ("Lighttpd" or "Nginx" recommended).
+_____
 
 **Basic configuration for *"Nginx"*:**
 
@@ -23,6 +25,7 @@ Originally developed by *"globalzon"*, now maintained and further enhanced by *"
 		fastcgi_index index.php;
 		include fastcgi_params;
 	}
+_____
 
 **If you use *"Apache"*, it should be something like that. (Already set in "web/.htaccess"):**
 
@@ -30,6 +33,7 @@ Originally developed by *"globalzon"*, now maintained and further enhanced by *"
 
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteRule ^(.*) index.php?r=$1 [QSA]
+_____
 
 **If you use *"Lighttpd"*, use the following configuration:**
 
@@ -44,6 +48,7 @@ Originally developed by *"globalzon"*, now maintained and further enhanced by *"
 
 		url.access-deny = ( "~", ".dat", ".log" )
 	}
+_____
 
 For the database, import the initial dump present in the *"sql/"* folder.
 
@@ -59,6 +64,7 @@ and the *"blocknotify"* binary to this folder.
 
 Some scripts are expecting the web folder to be *"/var/web"*.\
 You can use directory *"symlinks"*.
+_____
 
 **Add your exchange *"API"* public and secret keys in these two separated files:**
 
@@ -73,12 +79,14 @@ and\
 This web application includes some command line tools, add *"bin/"* folder to your path\
 and type *"yiimp"* to list them, *"yiimp checkup"* can help to test your initial setup.\
 Future scripts and maybe the *"cron"* jobs will then use this *"yiic"* interface.
+_____
 
 **You need at least three backend shells (in *"screen"*) running these scripts:**
 
 	"web/main.sh"
 	"web/loop2.sh"
 	"web/block.sh"
+_____
 
 **Start one *"stratum"* per algorithm using the *"run.sh2"* script with the algorithm as parameter.\
 For example, for *"x11"*:**
@@ -89,6 +97,7 @@ Edit each *".conf"* file with proper values.
 
 Look at *"rc.local"*, it starts all three backend shells and all *"stratum"* processes.\
 Copy it to the *"/etc"* folder so that all *"screen shells"* are started at boot up.
+_____
 
 **All your *"coin's"* configuration files need to *"blocknotify"*\
 their corresponding *"stratum"* using something like:**
@@ -98,10 +107,12 @@ their corresponding *"stratum"* using something like:**
 On your, new *"yiimp"*, website, go to *"http://yourserver.any/site/adminRights"* to login as administrator.\
 You have to change it to something different in the code (*"web/yaamp/modules/site/SiteController.php"*).\
 A real *"administrator"* login may be added later, but you can setup a password authentication with your web server.
+_____
 
 **Sample for *"Lighttpd"*:**
 
 	htpasswd -c /etc/yiimp/admin.htpasswd <adminuser>
+_____
 
 **and in the *"Lighttpd"* configuration file:**
 
@@ -117,10 +128,12 @@ A real *"administrator"* login may be added later, but you can setup a password 
 	                )
 	        )
 	}
+_____
 
-And finally remove the *"IP-filter-check"* in *"SiteController.php"*.
+Finally, remove the *"IP-filter-check"* in *"SiteController.php"*.
 
 There are logs generated in the *"/var/stratum"* folder and *"/var/log/stratum/debug.log"* for the *"php7.0+"* log.
+_____
 
 **CREDITS:**
 
@@ -164,5 +177,6 @@ and/or *"Revasz"* (That's me.)
 	XMR: 4AbuFAvg6wUKxH4uZafgcyJuUkksxiZBz1N8sNvtQbYNe9bDfCnSFxcPs3ZPfaeDzNc9rWorxw4piBvEpuKvWL8dPSJxcPu
 
 	BCH: 1Po5XaiwZg8iWDjZDwoNU7M56DpxRmkmed
+_____
 
 ***Revasz,* 2018**
