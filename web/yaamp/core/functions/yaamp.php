@@ -2,37 +2,53 @@
 
 function yaamp_get_algos()
 {
-	/* Toggle Site Algos Here */
+	// Toggle Site Algos Here
 	return array(
-		'sha256',
-		'sha256t',
-		'scrypt',
-		'scryptn',
+		'a5a',
 		'argon2',
 		'bastion',
 		'bitcore',
 		'blake',
 		'blakecoin',
 		'blake2s',
+		'c11',
 		'decred',
 		'deep',
+		'dmd-gr',
+		'groestl',	// dmd-gr -m 256 (deprecated)
 		'hmq1725',
+		'hsr',
+		'jha',
 		'keccak',
 		'keccakc',
-		'jha',
-		'hsr',
 		'lbry',
 		'luffa',
 		'lyra2',
 		'lyra2v2',
 		'lyra2z',
+		'myr-gr',
+		'm7m',
 		'neoscrypt',
 		'nist5',
 		'penta',
+		'phi',
 		'polytimos',
 		'quark',
 		'qubit',
-		'c11',
+		'scrypt',
+		'scryptn',
+		'sha256',
+		'sha256t',
+		'sib',
+		'skein',
+		'skein2',
+		'skunk',
+		'timetravel',
+		'tribus',
+		'vanilla',
+		'veltor',
+		'velvet',
+		'whirlpool',
 		'x11',
 		'x11evo',
 		'x13',
@@ -41,35 +57,16 @@ function yaamp_get_algos()
 		'x16r',
 		'x17',
 		'xevan',
-		'groestl', // dmd-gr -m 256 (deprecated)
-		'dmd-gr',
-		'myr-gr',
-		'm7m',
-		'phi',
-		'sib',
-		'skein',
-		'skein2',
-		'skunk',
-		'timetravel',
-		'tribus',
-		'a5a',
-		'vanilla',
-		'veltor',
-		'velvet',
 		'yescrypt',
 		'yescryptR16',
-		'whirlpool',
 		'zr5',
 	);
 }
-
 // Used for graphs and 24h profit
 // GH/s for fast algos like sha256
 function yaamp_algo_mBTC_factor($algo)
 {
 	switch($algo) {
-	case 'sha256':
-	case 'sha256t':
 	case 'blake':
 	case 'blakecoin':
 	case 'blake2s':
@@ -77,62 +74,94 @@ function yaamp_algo_mBTC_factor($algo)
 	case 'keccak':
 	case 'keccakc':
 	case 'lbry':
+	case 'sha256':
+	case 'sha256t':		
 	case 'vanilla':
 		return 1000;
 	default:
 		return 1;
 	}
 }
-
 // mBTC coef per algo
 function yaamp_get_algo_norm($algo)
 {
 	global $configAlgoNormCoef;
 	if (isset($configAlgoNormCoef[$algo]))
 		return (float) $configAlgoNormCoef[$algo];
-
 	$a = array(
-		'sha256'	=> 1.0,
-		'scrypt'	=> 1.0,
-		'scryptn'	=> 1.0,
-		'x11'		=> 1.0,
-		'x13'		=> 1.0,
 		'argon2'	=> 1.0,
+		'blake'		=> 1.0,
+		'keccak'	=> 1.0,
 		'lyra2'		=> 1.0,
 		'lyra2v2'	=> 1.0,
 		'myr-gr'	=> 1.0,
-		'nist5'		=> 1.0,
 		'neoscrypt'	=> 1.0,
+		'nist5'		=> 1.0,
 		'quark'		=> 1.0,
 		'qubit'		=> 1.0,
+		'scrypt'	=> 1.0,
+		'scryptn'	=> 1.0,
+		'sha256'	=> 1.0,
 		'skein'		=> 1.0,
-		'blake'		=> 1.0,
-		'keccak'	=> 1.0,
 		'skein2'	=> 1.0,
 		'velvet'	=> 1.0,
 		'whirlpool'	=> 1.0,
+		'x11'		=> 1.0,
+		'x13'		=> 1.0,
 		'yescrypt'	=> 1.0,
 		'yescryptR16'	=> 1.0,
 		'zr5'		=> 1.0,
 	);
-
 	if(!isset($a[$algo]))
 		return 1.0;
-
 	return $a[$algo];
 }
-
 function getAlgoColors($algo)
 {
 	$a = array(
-		'sha256'	=> '#d0d0a0',
-		'sha256t'	=> '#d0d0f0',
-		'scrypt'	=> '#c0c0e0',
-		'neoscrypt'	=> '#a0d0f0',
-		'scryptn'	=> '#d0d0d0',
+		'a5a'		=> '#f0f0f0',
+		'argon2'	=> '#e0d0e0',
+		'bastion'	=> '#e0b0b0',
+		'bitcore'	=> '#f790c0',
+		'blake'		=> '#f0f0f0',
+		'blakecoin'	=> '#f0f0f0',
 		'c11'		=> '#a0a0d0',
 		'decred'	=> '#f0f0f0',
 		'deep'		=> '#e0ffff',
+		'dmd-gr'	=> '#a0c0f0',
+		'groestl'	=> '#d0a0a0',
+		'hmq1725'	=> '#ffa0a0',
+		'hsr'		=> '#aa70ff',
+		'jha'		=> '#a0d0c0',
+		'keccak'	=> '#c0f0c0',
+		'keccakc'	=> '#c0f0c0',
+		'lbry'		=> '#b0d0e0',
+		'luffa'		=> '#a0c0c0',
+		'lyra2'		=> '#80a0f0',
+		'lyra2v2'	=> '#80c0f0',
+		'lyra2z'	=> '#80b0f0',
+		'myr-gr'	=> '#a0c0f0',
+		'm7m'		=> '#d0a0a0',
+		'neoscrypt'	=> '#a0d0f0',
+		'nist5'		=> '#c0e0e0',
+		'penta'		=> '#80c0c0',
+		'phi'		=> '#a0a0e0',
+		'polytimos'	=> '#dedefe',
+		'quark'		=> '#c0c0c0',
+		'qubit'		=> '#d0a0f0',
+		'sha256'	=> '#d0d0a0',
+		'sha256t'	=> '#d0d0f0',
+		'scrypt'	=> '#c0c0e0',
+		'scryptn'	=> '#d0d0d0',
+		'sib'		=> '#a0a0c0',
+		'skein'		=> '#80a0a0',
+		'skein2'	=> '#c8a060',
+		'skunk'		=> '#dedefe',
+		'timetravel'	=> '#f0b0d0',
+		'tribus'	=> '#c0d0d0',
+		'vanilla'	=> '#f0f0f0',
+		'velvet'	=> '#aac0cc',
+		'whirlpool'	=> '#d0e0e0',
 		'x11'		=> '#f0f0a0',
 		'x11evo'	=> '#c0f0c0',
 		'x13'		=> '#ffd880',
@@ -141,125 +170,83 @@ function getAlgoColors($algo)
 		'x16r'		=> '#f0b080',
 		'x17'		=> '#f0b0a0',
 		'xevan'         => '#f0b0a0',
-		'argon2'	=> '#e0d0e0',
-		'bastion'	=> '#e0b0b0',
-		'blake'		=> '#f0f0f0',
-		'blakecoin'	=> '#f0f0f0',
-		'groestl'	=> '#d0a0a0',
-		'jha'		=> '#a0d0c0',
-		'dmd-gr'	=> '#a0c0f0',
-		'myr-gr'	=> '#a0c0f0',
-		'hmq1725'	=> '#ffa0a0',
-		'hsr'		=> '#aa70ff',
-		'keccak'	=> '#c0f0c0',
-		'keccakc'	=> '#c0f0c0',
-		'lbry'		=> '#b0d0e0',
-		'luffa'		=> '#a0c0c0',
-		'm7m'		=> '#d0a0a0',
-		'penta'		=> '#80c0c0',
-		'nist5'		=> '#c0e0e0',
-		'quark'		=> '#c0c0c0',
-		'qubit'		=> '#d0a0f0',
-		'lyra2'		=> '#80a0f0',
-		'lyra2v2'	=> '#80c0f0',
-		'lyra2z'	=> '#80b0f0',
-		'phi'		=> '#a0a0e0',
-		'polytimos'	=> '#dedefe',
-		'sib'		=> '#a0a0c0',
-		'skein'		=> '#80a0a0',
-		'skein2'	=> '#c8a060',
-		'timetravel'	=> '#f0b0d0',
-		'bitcore'	=> '#f790c0',
-		'skunk'		=> '#dedefe',
-		'tribus'	=> '#c0d0d0',
-	        'a5a'		=> '#f0f0f0',
-		'vanilla'	=> '#f0f0f0',
-		'velvet'	=> '#aac0cc',
-		'whirlpool'	=> '#d0e0e0',
 		'yescrypt'	=> '#e0d0e0',
 		'yescryptR16'	=> '#e2d0e2',
 		'zr5'		=> '#d0b0d0',
-
-		'MN'		=> '#ffffff', // MasterNode Earnings
-		'PoS'		=> '#ffffff'  // Stake
+		'MN'		=> '#ffffff',	// MasterNode earnings.
+		'PoS'		=> '#ffffff', 	// Staking.
 	);
-
 	if(!isset($a[$algo]))
 		return '#ffffff';
-
 	return $a[$algo];
 }
-
 function getAlgoPort($algo)
 {
 	$a = array(
+		// Standard ports for algorithms.
+		// Port 5555 to 5683 is reserved.
+		'a5a'		=> 8633,
+		'argon2'	=> 4234,
+		'bastion'	=> 6433,
+		'bitcore'	=> 3556,
+		'blake'		=> 5733,
+		'blakecoin'	=> 5743,
+		'blake2s'	=> 5766,
+		'c11'		=> 3573,
+		'decred'	=> 3252,
+		'deep'		=> 3535,
+		'dmd-gr'	=> 5333,
+		//'groestl'	=> 5333,
+		'hmq1725'	=> 3747,
+		'hsr'		=> 7433,
+		'jha'		=> 4633,
+		'keccak'	=> 5133,
+		'keccakc'	=> 5134,
+		'lbry'		=> 3334,
+		'luffa'		=> 5933,
+		'lyra2'		=> 4433,
+		'lyra2v2'	=> 4533,
+		'lyra2z'	=> 4553,
+		'myr-gr'	=> 5433,
+		'm7m'		=> 6033,
+		'neoscrypt'	=> 4233,
+		'nist5'		=> 3833,
+		'penta'		=> 5833,
+		'phi'		=> 8333,
+		'polytimos'	=> 8463,
+		'quark'		=> 4033,
+		'qubit'		=> 4733,
 		'sha256'	=> 3333,
 		'sha256t'	=> 3339,
-		'lbry'		=> 3334,
 		'scrypt'	=> 3433,
+		'scryptn'	=> 4333,
+		'sib'		=> 5033,
+		'skein'		=> 4933,
+		'skein2'	=> 5233,
+		'skunk'		=> 8433,
 		'timetravel'	=> 3555,
-		'bitcore'	=> 3556,
-		'c11'		=> 3573,
-		'deep'		=> 3535,
+		'tribus'	=> 8533,
+		'vanilla'	=> 5755,
+		'veltor'	=> 5034,
+		'velvet'	=> 6133,
+		'whirlpool'	=> 4133,
 		'x11'		=> 3533,
 		'x11evo'	=> 3553,
 		'x13'		=> 3633,
+		'x14'		=> 3933,
 		'x15'		=> 3733,
 		'x16r'		=> 3636,
 		'x17'		=> 3737,
 		'xevan'		=> 3739,
-		'hmq1725'	=> 3747,
-		'nist5'		=> 3833,
-		'x14'		=> 3933,
-		'quark'		=> 4033,
-		'whirlpool'	=> 4133,
-		'neoscrypt'	=> 4233,
-		'argon2'	=> 4234,
-		'scryptn'	=> 4333,
-		'lyra2'		=> 4433,
-		'lyra2v2'	=> 4533,
-		'lyra2z'	=> 4553,
-		'jha'		=> 4633,
-		'qubit'		=> 4733,
-		'zr5'		=> 4833,
-		'skein'		=> 4933,
-		'sib'		=> 5033,
-		'keccak'	=> 5133,
-		'keccakc'	=> 5134,
-		'skein2'	=> 5233,
-		//'groestl'	=> 5333,
-		'dmd-gr'	=> 5333,
-		'myr-gr'	=> 5433,
-		'zr5'		=> 5533,
-		// 5555 to 5683 reserved
-		'blake'		=> 5733,
-		'blakecoin'	=> 5743,
-		'decred'	=> 3252,
-		'vanilla'	=> 5755,
-		'blake2s'	=> 5766,
-		'penta'		=> 5833,
-		'luffa'		=> 5933,
-		'm7m'		=> 6033,
-		'veltor'	=> 5034,
-		'velvet'	=> 6133,
 		'yescrypt'	=> 6233,
 		'yescryptR16'	=> 6333,
-		'bastion'	=> 6433,
-		'hsr'		=> 7433,
-		'phi'		=> 8333,
-		'polytimos'	=> 8463,
-		'skunk'		=> 8433,
-		'tribus'	=> 8533,
-	        'a5a'   	=> 8633,
+		'zr5'		=> 4833,    
 	);
-
 	global $configCustomPorts;
 	if(isset($configCustomPorts[$algo]))
 		return $configCustomPorts[$algo];
-
 	if(!isset($a[$algo]))
 		return 3033;
-
 	return $a[$algo];
 }
 
