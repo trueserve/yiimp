@@ -12,7 +12,7 @@ sudo:
 
 branches:
     only:
-        - MergeAllTheThings
+        - AllBranchesMerged
 
 script:
     - (cd blocknotify && make)
