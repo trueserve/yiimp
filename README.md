@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Revasz/yiimp.svg?branch=MergeAllTheThings)](https://travis-ci.org/Revasz/yiimp)
+[![Build Status](https://travis-ci.org/Revasz/yiimp.svg?branch=AllBranchesMerged)](https://travis-ci.org/Revasz/yiimp)
 
 ***"yiimp"*** - crypto-mining-pool-framework.  Forked from *"yaamp"* and based on the *"yii"* framework.
 
