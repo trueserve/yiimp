@@ -160,8 +160,6 @@ https://github.com/fastman/yiimp
 		
 https://github.com/phm87/yiimp
 		
-https://github.com/LePetitBloc/yiimp
-		
 So, thanks to them too.
 
 You can support this project by donating to *"tpruvot"*:
